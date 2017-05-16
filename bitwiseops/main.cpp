@@ -7,9 +7,25 @@
 //
 
 #include <iostream>
+#include <bitset>
+using namespace std;
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+int main() {
+    int x=182;
+    int y=183;
+    int c,d,res;
+    cout<<bitset<32>(x);
+    cout<<"\n";
+    cout<<bitset<32>(y);
+    cout<<"\n";
+    c=x&(((~0)<<7)|~((~0)<<3));
+    cout<<bitset<32>(c);
+    cout<<"\n";
+    d=(y&(~((~0)<<3)))<<3;
+    cout<<bitset<32>(d);
+    cout<<"\n";
+    res=c|d;
+    cout<<bitset<32>(res);
+    cout<<"\n";
     return 0;
 }
