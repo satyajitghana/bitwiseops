@@ -10,22 +10,28 @@
 #include <bitset>
 using namespace std;
 
+void print(int a) {
+    cout<<bitset<32>(a);
+    cout<<"\n";
+}
+
 int main() {
-    int x=182;
-    int y=183;
-    int c,d,res;
-    cout<<bitset<32>(x);
-    cout<<"\n";
-    cout<<bitset<32>(y);
-    cout<<"\n";
-    c=x&(((~0)<<7)|~((~0)<<3));
-    cout<<bitset<32>(c);
-    cout<<"\n";
-    d=(y&(~((~0)<<3)))<<3;
-    cout<<bitset<32>(d);
-    cout<<"\n";
+    int x,y,p,n,c,d,res;
+    cout<<"\nEnter two numbers : ";
+    cin>>x>>y;
+    cout<<"Enter value of p : ";
+    cin>>p;
+    cout<<"Enter value of n : ";
+    cin>>n;
+    cout<<"x      : "; print(x);
+    cout<<"y      : "; print(y);
+    //Here i am trying to clear the n bits from the pth place.
+    //quite simple operation
+    c=x&(((~0)<<(p+n-1))|~((~0)<<(p-n+1)));
+    //Here i try to clear everything except the last n bits.
+    d=(y&(~((~0)<<n)))<<(p-n+1);
     res=c|d;
-    cout<<bitset<32>(res);
+    cout<<"Result : "; print(res);
     cout<<"\n";
     return 0;
 }
