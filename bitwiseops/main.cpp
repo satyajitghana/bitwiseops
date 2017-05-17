@@ -27,9 +27,11 @@ int main() {
     cout<<"y      : "; print(y);
     //Here i am trying to clear the n bits from the pth place.
     //quite simple operation
-    c=x&(((~0)<<(p+n-1))|~((~0)<<(p-n+1)));
+    c=x&(((~0)<<(p+1))|~((~0)<<(p-n+1)));
+    cout<<"c      : "; print(c);
     //Here i try to clear everything except the last n bits.
     d=(y&(~((~0)<<n)))<<(p-n+1);
+    cout<<"d      : "; print(d);
     res=c|d;
     cout<<"Result : "; print(res);
     cout<<"\n";
